@@ -1,3 +1,5 @@
+/*jshint esversion: 6*/
+
 const users = {
   '1': { name: 'Alice', age: 12, gender: 'f', jobType: 'st' },
   '2': { name: 'Bob', age: 21, gender: 'm', jobType: 'dv' },
@@ -12,6 +14,7 @@ const users = {
   '11': { name: 'Kathy', age: 8, gender: 'f', jobType: 'na' },
   '12': { name: 'Liam', age: 20, gender: 'm', jobType: 'st' }
 };
+// console.log(users);
 
 const employer = {
   dv: 'DevLeague',
@@ -20,16 +23,40 @@ const employer = {
 };
 
 function byId(id) {
-
+  console.log(users[id]);
+  return users[id];
 }
+//byId('10');
 
 function youngest() {
+  let youngest = 100;
+  Object.keys(users).forEach(function(key,index){
+    let user = users[key];
+    //console.log(user.age);
+    //console.log(youngest);
+    if( youngest > user.age){
+      youngest = user.age;
+      //console.log(youngest);
+    }
+  });
+  console.log(youngest);
+  return youngest;
+ }
 
-}
 
 function oldest() {
-
+  let oldest = 0;
+  Object.keys(users).forEach(function(key,index){
+    let user = users[key];
+    if( oldest < user.age){
+      oldest = user.age;
+    }
+  });
+  console.log(oldest);
+  return oldest;
 }
+
+oldest();
 
 function males () {
 
