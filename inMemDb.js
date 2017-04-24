@@ -56,15 +56,32 @@ function oldest() {
   return oldest;
 }
 
-oldest();
-
 function males () {
-
+  let males = [];
+  Object.keys(users).forEach(function(key,index){
+    let user = users[key];
+    if(user.gender === 'm'){
+      males.push(user);
+    }
+  });
+  console.log(males);
+  return males;
 }
+
 
 function females() {
+  let females = [];
+  Object.keys(users).forEach(function(key,index){
+    let user = users[key];
+    if(user.gender === 'f'){
+      females.push(user);
+    }
+  });
+  console.log(females);
+  return females;
 
 }
+females();
 
 function employees(employer) {
 
