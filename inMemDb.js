@@ -23,23 +23,17 @@ const employer = {
 };
 
 function byId(id) {
-  console.log(users[id]);
   return users[id];
 }
-//byId('10');
 
 function youngest() {
   let youngest = 100;
   Object.keys(users).forEach(function(key,index){
     let user = users[key];
-    //console.log(user.age);
-    //console.log(youngest);
     if( youngest > user.age){
       youngest = user.age;
-      //console.log(youngest);
     }
   });
-  console.log(youngest);
   return youngest;
  }
 
@@ -52,7 +46,6 @@ function oldest() {
       oldest = user.age;
     }
   });
-  console.log(oldest);
   return oldest;
 }
 
@@ -64,7 +57,6 @@ function males () {
       males.push(user);
     }
   });
-  console.log(males);
   return males;
 }
 
@@ -77,25 +69,33 @@ function females() {
       females.push(user);
     }
   });
-  console.log(females);
   return females;
 
 }
 //females();
 
+function employerKey(name){
+  Object.keys(employer).forEach(function(key,index){
+    console.log(employer[key]);
+
+  });
+}
+employerKey();
+
 function employees(employer) {
+  let key = employerKey(employer);
   let employees = [];
   Object.keys(users).forEach(function(key,index){
-    let user = users[key];
+    let user = key;
     if(user.jobType === employer){
       employees.push(user);
     }
   });
-  console.log(employees);
   return employees;
 
 }
-//employees(employer[dv]);
+
+employees('dv');
 
 function canDrink(){
   let canDrink = [];
@@ -105,12 +105,9 @@ function canDrink(){
       canDrink.push(user);
     }
   });
-  console.log(canDrink);
   return canDrink;
 
 }
-
-canDrink();
 
 const functions = {
   byId: byId,
