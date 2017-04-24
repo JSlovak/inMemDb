@@ -81,11 +81,21 @@ function females() {
   return females;
 
 }
-females();
+//females();
 
 function employees(employer) {
+  let employees = [];
+  Object.keys(users).forEach(function(key,index){
+    let user = users[key];
+    if(user.jobType === 'dv'){
+      employees.push(user);
+    }
+  });
+  console.log(employees);
+  return employees;
 
 }
+employees();
 
 const functions = {
   byId: byId,
