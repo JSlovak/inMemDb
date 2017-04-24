@@ -87,7 +87,7 @@ function employees(employer) {
   let employees = [];
   Object.keys(users).forEach(function(key,index){
     let user = users[key];
-    if(user.jobType === 'dv'){
+    if(user.jobType === employer){
       employees.push(user);
     }
   });
@@ -95,7 +95,22 @@ function employees(employer) {
   return employees;
 
 }
-employees();
+//employees(employer[dv]);
+
+function canDrink(){
+  let canDrink = [];
+  Object.keys(users).forEach(function(key,index){
+    let user = users[key];
+    if(user.age >= 21){
+      canDrink.push(user);
+    }
+  });
+  console.log(canDrink);
+  return canDrink;
+
+}
+
+canDrink();
 
 const functions = {
   byId: byId,
@@ -103,7 +118,8 @@ const functions = {
   oldest: oldest,
   males: males,
   females: females,
-  employees: employees
+  employees: employees,
+  canDrink: canDrink
 };
 
 module.exports = functions;
