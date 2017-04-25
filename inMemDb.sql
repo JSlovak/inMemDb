@@ -31,33 +31,32 @@ CREATE TABLE IF NOT EXISTS users(
 );
 
 --  Add users to that table
-INSERT INTO users(name, age, gender, job_type) VALUES ('Alice', 12, 'f', 'st');
-INSERT INTO users(name, age, gender, job_type) VALUES ('Bob', 21, 'm', 'dv');
-INSERT INTO users(name, age, gender, job_type) VALUES ('Claire', 56, 'f', 'dv');
-INSERT INTO users(name, age, gender, job_type) VALUES ('David', 9, 'm', 'na');
-INSERT INTO users(name, age, gender, job_type) VALUES ('Eric', 61, 'm', 'dv');
-INSERT INTO users(name, age, gender, job_type) VALUES ('Fred', 45, 'm', 'dv');
-INSERT INTO users(name, age, gender, job_type) VALUES ('George', 38, 'm', 'dv');
-INSERT INTO users(name, age, gender, job_type) VALUES ('Hannah', 15, 'f', 'na');
-INSERT INTO users(name, age, gender, job_type) VALUES ('Ilona', 17, 'f', 'st');
-INSERT INTO users(name, age, gender, job_type) VALUES ('Jake', 27, 'm', 'dv');
-INSERT INTO users(name, age, gender, job_type) VALUES ('Kathy', 8, 'f', 'na');
-INSERT INTO users(name, age, gender, job_type) VALUES ('Liam', 20, 'm', 'st');
+INSERT INTO users(name, age, gender, job_type) VALUES
+('Alice', 12, 'f', 'st'),
+('Bob', 21, 'm', 'dv'),
+('Claire', 56, 'f', 'dv'),
+('David', 9, 'm', 'na'),
+('Eric', 61, 'm', 'dv'),
+('Fred', 45, 'm', 'dv'),
+('George', 38, 'm', 'dv'),
+('Hannah', 15, 'f', 'na'),
+('Ilona', 17, 'f', 'st'),
+('Jake', 27, 'm', 'dv'),
+('Kathy', 8, 'f', 'na'),
+('Liam', 20, 'm', 'st');
 
 
 -- SELECT all users, show their names and ids
-
 SELECT id, name
 FROM users;
 
 -- SELECT the youngest user
-
 SELECT *
 FROM users
 WHERE age = (SELECT MIN(age) FROM users);
+-- ORDER BY age (default ordering is ascending) LIMIT 1;
 
 -- SELECT the oldest user
-
 SELECT *
 FROM users
 WHERE age = (SELECT MAX(age) FROM users);
