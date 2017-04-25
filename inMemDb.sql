@@ -9,6 +9,17 @@ CREATE DATABASE morning_challenge;
 -- Connect to the database
 \c morning_challenge;
 
+-- Create a table employers
+CREATE TABLE IF NOT EXISTS employers(
+  id VARCHAR(2) PRIMARY KEY,
+  description VARCHAR(10)
+);
+
+INSERT INTO employers(id, description) VALUES
+('dv','DevLeague'),
+('st','Student'),
+('na','N/A');
+
 
 -- Create a table users
 CREATE TABLE IF NOT EXISTS users(
@@ -16,7 +27,7 @@ CREATE TABLE IF NOT EXISTS users(
   name VARCHAR(50) NOT NULL,
   age INTEGER NOT NULL,
   gender VARCHAR(1) NOT NULL,
-  job_type VARCHAR(10) NOT NULL
+  job_type VARCHAR(10) NOT NULL REFERENCES employers(id)
 );
 
 --  Add users to that table
@@ -32,6 +43,7 @@ INSERT INTO users(name, age, gender, job_type) VALUES ('Ilona', 17, 'f', 'st');
 INSERT INTO users(name, age, gender, job_type) VALUES ('Jake', 27, 'm', 'dv');
 INSERT INTO users(name, age, gender, job_type) VALUES ('Kathy', 8, 'f', 'na');
 INSERT INTO users(name, age, gender, job_type) VALUES ('Liam', 20, 'm', 'st');
+
 
 -- SELECT all users, show their names and ids
 
@@ -63,9 +75,12 @@ WHERE gender = 'f';
 -- JOIN, SELECT users and return tables that return users with same employer
 SELECT *
 FROM users
-ORDER BY jobType
+INNER JOIN employers ON users.job_type = employers.id
+WHERE employers.description = 'DevLeague';
 
 -- SELECT all users, that are above 21
 SELECT *
 FROM users
 WHERE age > 2;
+
+
