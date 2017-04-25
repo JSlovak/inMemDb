@@ -1,6 +1,6 @@
 --Create a user
 DROP ROLE IF EXISTS michael;
-CREATE ROL michael WITH ENCRYPTED PASSWORD 'stonebreaker';
+CREATE ROLE michael WITH ENCRYPTED PASSWORD 'stonebreaker';
 
 -- Connect database
 DROP DATABASE IF EXISTS morning_challenge;
