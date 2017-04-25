@@ -14,7 +14,6 @@ const users = {
   '11': { name: 'Kathy', age: 8, gender: 'f', jobType: 'na' },
   '12': { name: 'Liam', age: 20, gender: 'm', jobType: 'st' }
 };
-// console.log(users);
 
 const employer = {
   dv: 'DevLeague',
@@ -36,7 +35,6 @@ function youngest() {
   });
   return youngest;
  }
-
 
 function oldest() {
   let oldest = 0;
@@ -72,7 +70,6 @@ function females() {
   return females;
 
 }
-//females();
 
 function employerKey(name){
   Object.keys(employer).forEach(function(key,index){
@@ -81,6 +78,11 @@ function employerKey(name){
   });
 }
 employerKey();
+
+// Refactor notes for employees
+// Spec would like to produce/ return seperate arrays by "employer"
+// How do we make these list dynamic?
+// Stretcha: add a sort function to alphabetize each array
 
 function employees(employer) {
   let key = employerKey(employer);
